@@ -2,6 +2,7 @@ package com.azlogistica.azslog.api.controller;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,11 +41,13 @@ public class VeiculoController {
 		return veiculoRepository.findAll();
 	}
 	
-	/* Buscando veículos por código */
+	/* Buscando veículos por código - Retornará status 404 caso não existir */
 	
 	@GetMapping("/{codigo}")
-	public Veiculo buscarPeloCodigo(@PathVariable Long codigo) {
-		return veiculoRepository.findById(codigo).orElse(null);
+	public ResponseEntity buscarPeloCodigo(@PathVariable Long codigo) {
+		Optional veiculo = veiculoRepository.findById(codigo);
+		return veiculo.isPresent() ?
+				ResponseEntity.ok(veiculo.get()) : ResponseEntity.notFound().build(); 
 	}
 	
 	/* Filtrando veículo por placa */
