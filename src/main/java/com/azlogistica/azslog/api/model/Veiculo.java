@@ -42,7 +42,7 @@ public class Veiculo {
 	private String modelo;
 	
 	@Column(name = "anofabricacao")
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate anoFabricacao;
 	
 	public long getId() {
@@ -100,13 +100,13 @@ public class Veiculo {
 		this.modelo = modelo;
 	}
 	
-	
 	public LocalDate getAnoFabricacao() {
 		return anoFabricacao;
 	}
 	public void setAnoFabricacao(LocalDate anoFabricacao) {
 		this.anoFabricacao = anoFabricacao;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
