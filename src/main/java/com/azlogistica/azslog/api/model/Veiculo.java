@@ -26,6 +26,7 @@ public class Veiculo {
 	private String placa;
 	
 	@ManyToOne
+	@NotNull
 	@JoinColumn(name = "categoria_veiculo_id")
 	private CategoriaVeiculo categoriaVeiculo;
 	

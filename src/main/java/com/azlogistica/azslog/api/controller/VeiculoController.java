@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,13 +53,13 @@ public class VeiculoController {
 	
 	/* Filtrando veículo por placa */
 	@GetMapping(value = "/placa/{placa}")
-	public Veiculo findByPlaca(@PathVariable final String placa) {
+	public Veiculo findByPlaca(@Valid @PathVariable final String placa) {
 		return veiculoRepository.findByPlaca(placa);
 	}
 	
 	/* Cadastrando veículos */
 	@PostMapping
-	public ResponseEntity<Veiculo> criarVeilculo (@RequestBody Veiculo veiculo, HttpServletResponse response) {
+	public ResponseEntity<Veiculo> criarVeilculo (@Valid @RequestBody Veiculo veiculo, HttpServletResponse response) {
 		
 		Veiculo veiculoSalvo = veiculoRepository.save(veiculo);
 		
@@ -74,7 +75,7 @@ public class VeiculoController {
 	
 	/* Atualizar veiculo */
 	@PutMapping("/{codigo}")
-	public ResponseEntity<Veiculo> atualizar(@PathVariable Long codigo, @RequestBody Veiculo veiculo){
+	public ResponseEntity<Veiculo> atualizar(@Valid @PathVariable Long codigo, @RequestBody Veiculo veiculo){
 		
 		Veiculo veiculoSalvo = veiculoService.atualizar(codigo, veiculo);
 			
