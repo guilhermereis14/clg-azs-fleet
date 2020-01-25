@@ -1,5 +1,8 @@
 package com.azlogistica.azslog.api.model;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,12 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table (name = "veiculo")
 public class Veiculo {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotNull
@@ -34,7 +39,10 @@ public class Veiculo {
 	private String chassi;
 	private String fabricante;
 	private String modelo;
-	private String anoFabricacao;
+	
+	@Column(name = "anofabricacao")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDate anoFabricacao;
 	
 	public long getId() {
 		return id;
@@ -90,10 +98,12 @@ public class Veiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public String getAnoFabricacao() {
+	
+	
+	public LocalDate getAnoFabricacao() {
 		return anoFabricacao;
 	}
-	public void setAnoFabricacao(String anoFabricacao) {
+	public void setAnoFabricacao(LocalDate anoFabricacao) {
 		this.anoFabricacao = anoFabricacao;
 	}
 	@Override

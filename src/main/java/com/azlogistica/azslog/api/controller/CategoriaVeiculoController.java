@@ -17,7 +17,7 @@ public class CategoriaVeiculoController {
 	@Autowired
 	private CategoriaVeiculoRepository categoriaVeiculoRepository;
 	
-	//Listando todas as categorias de veículos cadastradas
+	/* Listando todas as categorias de veículos cadastradas */
 	@GetMapping
 	public List <CategoriaVeiculo> listar(){
 		return categoriaVeiculoRepository.findAll();
