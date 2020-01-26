@@ -19,5 +19,5 @@ public interface ViagemRepository extends JpaRepository<Viagem, Long>{
 	@Query(value= "SELECT * FROM viagem v INNER JOIN veiculo ve ON v.veiculo_id = ve.id where ve.placa = ?1", nativeQuery = true)
 	List<Viagem> placa(String placa);
 	
-	List <Viagem> dataInicioIs(Date data);
+	List <Viagem> dataInicioEquals(LocalDate data);
 }

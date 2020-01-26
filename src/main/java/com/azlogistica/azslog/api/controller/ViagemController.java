@@ -1,6 +1,10 @@
 package com.azlogistica.azslog.api.controller;
 
 import java.net.URI;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -50,10 +54,13 @@ public class ViagemController {
 	
 	
 	@GetMapping("/consulta/data/{data}")
-	public List<Viagem> findByData(@PathVariable Date data) {
+	public List<Viagem> findByData(@PathVariable String data) {
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+		LocalDate novaData = LocalDate.parse(data, dateTimeFormatter);
 		
+		//Date novaData = new SimpleDateFormat("yyyy-MM-dd").parse(data);
 		
-		return viagemRepository.dataInicioIs(data);
+		return viagemRepository.dataInicioEquals(novaData);
 		
 	}
 	

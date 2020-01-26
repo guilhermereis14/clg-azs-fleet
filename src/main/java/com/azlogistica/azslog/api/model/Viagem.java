@@ -25,13 +25,11 @@ public class Viagem {
 	private Long id;
 	
 	@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="datainicio")
-	private Date dataInicio;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataInicio;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name="datafim")
 	private Date dataFim;
 	
@@ -56,13 +54,11 @@ public class Viagem {
 		this.id = id;
 	}
 
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	public Date getDataInicio() {
+	public LocalDate getDataInicio() {
 		return dataInicio;
 	}
 
-	public void setDataInicio(Date dataInicio) {
+	public void setDataInicio(LocalDate dataInicio) {
 		this.dataInicio = dataInicio;
 	}
 
