@@ -5,7 +5,8 @@ Api desenvolvida com Spring Boot <version>2.1.6.RELEASE</version>, utilizando My
 
 Funcionalidades da Api:
 
-* Cadastro de Pessoa
-* Cadastro de Veículos (caminhões)
-* Cadastro de Viagens
+* Cadastro de Pessoa - CRUD
+* Cadastro de Veículos (caminhões) - CRUD
+* Cadastro de Viagens - CRUD
 
+A aplicação cliente está sendo desenvolvida, utilizando Angular 8 e PrimeNg.
