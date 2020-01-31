@@ -1,7 +1,7 @@
 # clg-azs-fleet
 
 
-Api desenvolvida com Spring Boot <version>2.1.6.RELEASE</version>, utilizando MySQL.
+Api REST desenvolvida com Spring Boot <version>2.1.6.RELEASE</version> com database MySQL e JPA. Validações com BeanValidation e controle de exceções com ExceptionHandler.
 
 Funcionalidades da Api:
 
